@@ -36,7 +36,7 @@ The prober-blackbox-config ConfigMap is used to configure the blackbox prober. I
 
 #### Helm
 ```sh
-helm install prober-operator prober-operator/prober-operator
+helm install prober-operator charts/prober-operator
 ```
 
 #### Local
