@@ -25,7 +25,22 @@ The prober-operator simplifies the process of monitoring Ingress resources by dy
 - Access to a Kubernetes v1.11.3+ cluster.
 
 ### To Deploy on the cluster
-**Build and push your image to the location specified by `IMG`:**
+
+#### Configuration
+ConfigMap: `prober-blackbox-config`
+The prober-blackbox-config ConfigMap is used to configure the blackbox prober. It includes the prober URL and labels.
+
+- **proberURL**: Specifies the prober URL of the blckbox exporter
+- **labels**: Defines additional labels for the blackbox prober if specific labels are required for scraping
+
+
+#### Helm
+```sh
+helm install prober-operator prober-operator/prober-operator
+```
+
+#### Local
+Build and push your image to the location specified by `IMG`:
 
 ```sh
 make docker-build docker-push IMG=<some-registry>/prober-operator:tag
