@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prober-blackbox-config
+  labels:
+    {{- include "prober-operator.labels" . | nindent 4 }}
+data:
+  proberURL: "{{ .Values.blackboxExporter.proberUrl }}:{{ .Values.blackboxExporter.proberPort }}"
+  labels: |
+{{ toYaml .Values.blackboxExporter.labels | indent 4 }}
